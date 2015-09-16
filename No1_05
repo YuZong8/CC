@@ -1,0 +1,53 @@
+	public boolean oneEditAway(String s1, String s2) {
+		if(s1.length() == s2.length()) {
+			return oneEditRelpace(s1, s2);
+		} else if(s1.length() + 1 == s2.length()) {
+			return oneEditInsert(s1, s2);
+		} else if(s1.length() - 1 == s2.length()) {
+			return oneEditRemove(s1, s2);
+		}
+		return false;
+	}
+	private boolean oneEditRelpace(String s1, String s2) {
+		int oneDiff = 0;
+		for(int i = 0; i < s1.length(); i ++) {
+			if(s1.charAt(i) != s2.charAt(i))	oneDiff ++;
+		}
+		return oneDiff == 1;
+	}
+	
+	private boolean oneEditInsert(String s1, String s2) {
+		int i = 0;
+		int j = 0;
+		int oneDiff = 0;
+		while(i < s1.length() && j < s2.length()) {
+			if(oneDiff > 1)	return false;
+			if(s1.charAt(i) != s2.charAt(j)) {
+				j ++;
+				oneDiff ++;
+			} else {
+				i ++;
+				j ++;
+			}
+		}		
+		return true;
+
+	}
+	
+	private boolean oneEditRemove(String s1, String s2) {
+		
+		int i = 0;
+		int j = 0;
+		int oneDiff = 0;
+		while(i < s1.length() && j < s2.length()) {
+			if(oneDiff > 1)	return false;
+			if(s1.charAt(i) != s2.charAt(j)) {
+				i ++;
+				oneDiff ++;
+			} else {
+				i ++;
+				j ++;
+			}
+		}		
+		return true;
+	}
