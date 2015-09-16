@@ -19,11 +19,10 @@ public static boolean isUniqueChar(String str) {
 	for(int i = 0; i < str.length(); i ++) {
 		int val = str.charAt(i);
 
- 	if(check[val]) {
-			return false;
-		}
+ 		if(check[val])	return false;
+		
 		check[val] = true;
-	}
+	
 	return true;
 } 
  
