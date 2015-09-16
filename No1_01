@@ -1,0 +1,11 @@
+
+
+public static boolean isUniqueChars(String str) {
+	boolean[] check = new boolean[256];
+	
+	for(int i = 0; i < str.length(); i ++) {
+		if(check[str.charAt(i)])	return false;
+		check[str.charAt(i)] = true;
+	}
+	return true;
+}
