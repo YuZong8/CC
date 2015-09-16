@@ -1,0 +1,26 @@
+	public boolean isPermutaionOfPalindrome(String s) {
+		int[] helper = new int[256];
+		int charNum = 0;
+		for(int i = 0; i < s.length(); i ++) {
+			char c = s.charAt(i);
+			if(c != ' ') {
+				char lc = Character.toLowerCase(c);		//notice: must write char lc = !!!!
+				helper[lc] ++;
+				charNum ++;
+			}
+		}
+		
+		if(charNum % 2 == 0) {
+			for(int n : helper) {
+				if(n % 2 == 1)	return false;
+			}
+			return true;
+		} else {
+			int count = 0;
+			for(int n : helper) {
+				if(n % 2 == 1)	count ++;
+			}
+			return count == 1;
+		}
+		
+	}
