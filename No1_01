@@ -1,4 +1,4 @@
-public static boolean isUniqueChars(String str) {
+public boolean isUniqueChars(String str) {
 	boolean[] check = new boolean[256];
 	
 	for(int i = 0; i < str.length(); i ++) {
