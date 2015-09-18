@@ -1,0 +1,8 @@
+	public void deleteMidNode(ListNode mid) {
+		//mid can not be the last node.
+		if(mid == null || mid.next == null)	return;
+		
+		
+		mid.val = mid.next.val;	        // copy mid's next node's data to mid
+		mid.next = mid.next.next;		//delete mid's next node
+	}
